@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] private CharacterController character;
+    [SerializeField] private PlayerController character;
     
     private static SceneController instance;
 

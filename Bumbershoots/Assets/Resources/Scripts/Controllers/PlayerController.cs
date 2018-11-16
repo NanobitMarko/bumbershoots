@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Vector3 speed = Vector3.down;
     private float speedFactor = 1.0f;
@@ -25,5 +25,9 @@ public class CharacterController : MonoBehaviour
     public void OnFingerUp()
     {
         speedFactor = 1.0f;
+    }
+
+    public void AddDamage(){
+        Debug.Log("Pocinjena je steta!");
     }
 }

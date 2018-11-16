@@ -5,9 +5,9 @@ public class GameHud : MonoBehaviour
 {
 	[SerializeField] private Text scoreLabel;
 	[SerializeField] private ControlPanel controlPanel;
-	private CharacterController character;
+	private PlayerController character;
 
-	public static Transform Create(CharacterController character)
+	public static Transform Create(PlayerController character)
 	{
 		var menu = Instantiate(Resources.Load<GameHud>("Menus/GameHud"));
 		menu.character = character;
@@ -20,7 +20,7 @@ public class GameHud : MonoBehaviour
 		ConnectControls(character);
 	}
 
-	public void ConnectControls(CharacterController controller)
+	public void ConnectControls(PlayerController controller)
 	{
 		controlPanel.FingerDown += controller.OnFingerDown;
 		controlPanel.FingerUp += controller.OnFingerUp;
