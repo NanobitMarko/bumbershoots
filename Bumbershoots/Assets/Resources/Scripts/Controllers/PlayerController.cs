@@ -2,8 +2,11 @@
 
 public class PlayerController : MonoBehaviour
 {
+    public float SpeedFast = 8f;
+    public float SpeedSlow = 4f;
+    
     private Vector3 speed = Vector3.down;
-    private float speedFactor = 1.0f;
+    private float speedFactor = 8f;
     private bool shouldMove = true;
     
     public delegate void ScoreChangedHandler(int score); 
@@ -48,12 +51,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnFingerDown()
     {
-        speedFactor = 0.5f;
+        speedFactor = SpeedSlow;
     }
 
     public void OnFingerUp()
     {
-        speedFactor = 1.0f;
+        speedFactor = SpeedFast;
     }
 
     public void AddDamage(){
