@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour {
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 desiredPosition = new Vector3(0f, target.position.y, -10f) + offset;
         Vector3 smoothedPosition = Vector3.Lerp(new Vector3(0f, transform.position.y, -10f), desiredPosition, smoothSpeed);
