@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public float SpeedFast = 8f;
     public float SpeedSlow = 2f;
+
+    public int MultiplierFast = 3;
+    public int MultiplierSlow = 2;
     
     private Vector3 speed = Vector3.down;
     private float speedFactor = 8f;
@@ -47,7 +50,7 @@ public class PlayerController : MonoBehaviour
         if (shouldGainPointsFromTime)
             if (lastTimeStampWhenWeGainedPoints + timeIntervalAtWhichWeGainPoints < Time.realtimeSinceStartup) {
                 lastTimeStampWhenWeGainedPoints = Time.realtimeSinceStartup;
-                points += pointsGainedEveryTimeInterval; // possibly multiply for missed time?
+                points += pointsGainedEveryTimeInterval * scoreMultiplier; // possibly multiply for missed time?
                 if (ScoreChanged != null)
                 {
                     ScoreChanged(score);
@@ -64,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public void OnFingerDown()
     {
         speedFactor = SpeedSlow;
+        scoreMultiplier = MultiplierSlow;
         SetAnimation("SlowDown");
     }
 
@@ -97,6 +101,7 @@ public class PlayerController : MonoBehaviour
     public void OnFingerUp()
     {
         speedFactor = SpeedFast;
+        scoreMultiplier = MultiplierFast;
         SetAnimation("SpeedUp");
     }
 
