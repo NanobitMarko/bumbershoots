@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     
     public event ScoreChangedHandler ScoreChanged;
 
+    public delegate void CharacterDeathHandler();
+
+    public event CharacterDeathHandler CharacterDeath;
+
     private int coins;
     private int points;
 
@@ -98,6 +102,10 @@ public class PlayerController : MonoBehaviour
 
     public void AddDamage(){
         Debug.Log("Pocinjena je steta!");
+        SceneController.Instance.OnCharacterDeath();
+
+        if (CharacterDeath != null)
+            CharacterDeath();
     }
 
     public void AddCoins(int amount)

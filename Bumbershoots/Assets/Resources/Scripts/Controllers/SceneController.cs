@@ -26,12 +26,16 @@ public class SceneController : MonoBehaviour
     {
         MenuController.Instance.ShowMenu(MainMenu.Create());
         character.SetMovementEnabled(false);
+        
+        SoundManager.Instance.PlayBGM(SoundManager.Music.Menu);
     }
 
     public void BeginGame()
     {
         MenuController.Instance.ShowMenu(GameHud.Create(character));
         character.SetMovementEnabled(true);
+        
+        SoundManager.Instance.PlayBGM(SoundManager.Music.Uplifting);
     }
 
     public void OnCharacterDeath()

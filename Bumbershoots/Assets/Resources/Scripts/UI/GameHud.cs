@@ -17,14 +17,23 @@ public class GameHud : MonoBehaviour
 	public void Start()
 	{
 		SetScore(0);
-		ConnectControls(character);
+		ConnectControls();
 	}
 
-	private void ConnectControls(PlayerController controller)
+	private void ConnectControls()
 	{
-		controlPanel.FingerDown += controller.OnFingerDown;
-		controlPanel.FingerUp += controller.OnFingerUp;
-		controller.ScoreChanged += SetScore;
+		controlPanel.FingerDown += character.OnFingerDown;
+		controlPanel.FingerUp += character.OnFingerUp;
+		character.ScoreChanged += SetScore;
+		character.CharacterDeath += DisconnectControls;
+	}
+
+	public void DisconnectControls()
+	{
+		controlPanel.FingerDown -= character.OnFingerDown;
+		controlPanel.FingerUp -= character.OnFingerUp;
+		character.ScoreChanged -= SetScore;
+		character.CharacterDeath -= DisconnectControls;
 	}
 
 	private void SetScore(int score)

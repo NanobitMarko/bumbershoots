@@ -16,6 +16,12 @@ public class SoundManager : MonoBehaviour
         Wind
     }
 
+    public enum Music
+    {
+        Menu,
+        Uplifting
+    }
+
     private static SoundManager instance;
     public static SoundManager Instance
     {
@@ -32,9 +38,9 @@ public class SoundManager : MonoBehaviour
         SFXPlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/" + track + " SFX"));
     }
 
-    public void PlayBGM(string track)
+    public void PlayBGM(Music track)
     {
-        BGMPlayer.clip = Resources.Load<AudioClip>("Sounds/BGM/" + track);
+        BGMPlayer.clip = Resources.Load<AudioClip>("Sounds/BGM/" + track + " BGM");
         BGMPlayer.Play();
     }
 }
