@@ -38,6 +38,7 @@ public class SceneController : MonoBehaviour
     {
         MenuController.Instance.ShowMenu(ContinueMenu.Create());
         character.SetMovementEnabled(false);
+        character.SetAnimation("Death");
         
         SoundManager.Instance.PlaySFX(SoundManager.Effects.Death);
     }

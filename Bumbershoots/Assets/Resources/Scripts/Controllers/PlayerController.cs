@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using Spine;
+using Spine.Unity;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float SpeedFast = 8f;
-    public float SpeedSlow = 4f;
+    public float SpeedSlow = 2f;
     
     private Vector3 speed = Vector3.down;
     private float speedFactor = 8f;
     private bool shouldMove = true;
+    [SerializeField] private SkeletonAnimation mesh;
     
     public delegate void ScoreChangedHandler(int score); 
     
@@ -26,6 +29,11 @@ public class PlayerController : MonoBehaviour
     private float lastTimeStampWhenWeGainedPoints;
     private int pointsGainedEveryTimeInterval = 1;
     private bool shouldGainPointsFromTime;
+
+    private void Start()
+    {
+        mesh.AnimationState.Complete += OnAnimationComplete;
+    }    
 
     private void Update()
     {
@@ -52,11 +60,40 @@ public class PlayerController : MonoBehaviour
     public void OnFingerDown()
     {
         speedFactor = SpeedSlow;
+        SetAnimation("SlowDown");
+    }
+
+    private void OnAnimationComplete(TrackEntry entry)
+    {
+        switch (mesh.AnimationName)
+        {
+            case "SlowDown":
+            {
+                SetAnimation("FallSlow");
+                break;
+            }
+            case "SpeedUp":
+            {
+                SetAnimation("FallFast");
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+    }
+
+    public void SetAnimation(string animationName)
+    {
+        //mesh.skeleton.SetToSetupPose();
+        mesh.AnimationName = animationName;
     }
 
     public void OnFingerUp()
     {
         speedFactor = SpeedFast;
+        SetAnimation("SpeedUp");
     }
 
     public void AddDamage(){

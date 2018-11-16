@@ -1,0 +1,174 @@
+
+skeleton.png
+size: 1937,943
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Sir_Sir_0000_UmbrellaClosed
+  rotate: true
+  xy: 674, 176
+  size: 247, 452
+  orig: 247, 452
+  offset: 0, 0
+  index: -1
+Sir_Sir_0001_UmbrellaSemiClosed
+  rotate: true
+  xy: 1424, 394
+  size: 547, 326
+  orig: 547, 326
+  offset: 0, 0
+  index: -1
+Sir_Sir_0002_UmbrellaFront_Opened
+  rotate: false
+  xy: 674, 425
+  size: 748, 238
+  orig: 748, 238
+  offset: 0, 0
+  index: -1
+Sir_Sir_0003_Umbrella_handle
+  rotate: true
+  xy: 2, 124
+  size: 121, 574
+  orig: 121, 574
+  offset: 0, 0
+  index: -1
+Sir_Sir_0004_UmbrelaBack_Opened
+  rotate: false
+  xy: 674, 665
+  size: 748, 276
+  orig: 748, 276
+  offset: 0, 0
+  index: -1
+Sir_Sir_0006_MouthOpened
+  rotate: true
+  xy: 2, 2
+  size: 120, 104
+  orig: 120, 104
+  offset: 0, 0
+  index: -1
+Sir_Sir_0007_MouthSemiClosed2
+  rotate: false
+  xy: 1191, 30
+  size: 170, 161
+  orig: 170, 161
+  offset: 0, 0
+  index: -1
+Sir_Sir_0008_MouthSemiClosed1
+  rotate: false
+  xy: 1128, 193
+  size: 233, 230
+  orig: 233, 230
+  offset: 0, 0
+  index: -1
+Sir_Sir_0009_Mouth_Closed
+  rotate: true
+  xy: 1363, 26
+  size: 366, 376
+  orig: 366, 376
+  offset: 0, 0
+  index: -1
+Sir_Sir_0010_Puple_L
+  rotate: false
+  xy: 200, 33
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+Sir_Sir_0011_Puple_R
+  rotate: false
+  xy: 400, 91
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+Sir_Sir_0012_Eye_R_SemiClosed-copy
+  rotate: false
+  xy: 108, 25
+  size: 90, 97
+  orig: 90, 97
+  offset: 0, 0
+  index: -1
+Sir_Sir_0013_Eye_L_SemiClosed
+  rotate: true
+  xy: 312, 46
+  size: 76, 86
+  orig: 76, 86
+  offset: 0, 0
+  index: -1
+Sir_Sir_0014_Eye_L_Closed
+  rotate: false
+  xy: 1741, 38
+  size: 92, 38
+  orig: 92, 38
+  offset: 0, 0
+  index: -1
+Sir_Sir_0015_Eye_R_Closed
+  rotate: true
+  xy: 200, 66
+  size: 56, 110
+  orig: 56, 110
+  offset: 0, 0
+  index: -1
+Sir_Sir_0016_Eye_L
+  rotate: false
+  xy: 578, 140
+  size: 94, 105
+  orig: 94, 105
+  offset: 0, 0
+  index: -1
+Sir_Sir_0017_Eye_R
+  rotate: false
+  xy: 1752, 426
+  size: 111, 110
+  orig: 111, 110
+  offset: 0, 0
+  index: -1
+Sir_Sir_0018_Eyebrow_L
+  rotate: true
+  xy: 1865, 470
+  size: 66, 36
+  orig: 66, 36
+  offset: 0, 0
+  index: -1
+Sir_Sir_0019_Eyebrow_R
+  rotate: false
+  xy: 1903, 470
+  size: 32, 66
+  orig: 32, 66
+  offset: 0, 0
+  index: -1
+Sir_Sir_0020_Arm_R
+  rotate: true
+  xy: 674, 46
+  size: 128, 266
+  orig: 128, 266
+  offset: 0, 0
+  index: -1
+Sir_Sir_0021_Leg_R
+  rotate: false
+  xy: 1741, 78
+  size: 185, 314
+  orig: 185, 314
+  offset: 0, 0
+  index: -1
+Sir_Sir_0022_body
+  rotate: false
+  xy: 2, 247
+  size: 670, 694
+  orig: 670, 694
+  offset: 0, 0
+  index: -1
+Sir_Sir_0023_Leg_L
+  rotate: false
+  xy: 942, 17
+  size: 247, 157
+  orig: 247, 157
+  offset: 0, 0
+  index: -1
+Sir_Sir_0024_Arm_L
+  rotate: false
+  xy: 1752, 538
+  size: 154, 403
+  orig: 154, 403
+  offset: 0, 0
+  index: -1
