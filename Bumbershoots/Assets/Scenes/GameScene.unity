@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17fca7277e3642978d8c862c23fcc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1263357481}
 --- !u!1 &797712063
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1263357480}
+  - component: {fileID: 1263357481}
   - component: {fileID: 1263357479}
   m_Layer: 0
   m_Name: Blob!
@@ -472,3 +474,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263357481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263357478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5b5b118f2d24c3d9065a8e19e36814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

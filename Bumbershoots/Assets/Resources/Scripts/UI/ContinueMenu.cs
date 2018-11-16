@@ -9,6 +9,6 @@ public class ContinueMenu : MonoBehaviour {
 	
 	public void OnRestartClicked()
 	{
-		Debug.LogWarning("Restart button clicked! Not implemented yet!");
+		SceneController.Instance.EndGame();
 	}
 }

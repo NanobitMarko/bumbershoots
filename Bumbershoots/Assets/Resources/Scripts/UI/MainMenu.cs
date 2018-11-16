@@ -9,9 +9,7 @@ public class MainMenu : MonoBehaviour {
 
     public void OnStartClicked()
     {
-        // TODO game controller -> start game
         Destroy(gameObject);
-        MenuController.Instance.ShowMenu(GameHud.Create());
-        Debug.LogWarning("Start button clicked! Not fully implemented yet!");
+        SceneController.Instance.BeginGame();
     }
 }
