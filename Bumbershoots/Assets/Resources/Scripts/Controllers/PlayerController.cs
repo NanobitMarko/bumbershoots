@@ -30,4 +30,8 @@ public class PlayerController : MonoBehaviour
     public void AddDamage(){
         Debug.Log("Pocinjena je steta!");
     }
+
+    public void AddCoins(float amount){
+        //napraviti coinse
+    }
 }
