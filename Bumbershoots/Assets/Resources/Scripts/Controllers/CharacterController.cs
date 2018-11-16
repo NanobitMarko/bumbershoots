@@ -16,4 +16,14 @@ public class CharacterController : MonoBehaviour
     {
         shouldMove = enabled;
     }
+
+    public void OnFingerDown()
+    {
+        speedFactor = 0.5f;
+    }
+
+    public void OnFingerUp()
+    {
+        speedFactor = 1.0f;
+    }
 }

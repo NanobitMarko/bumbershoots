@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour
 
     public void BeginGame()
     {
-        MenuController.Instance.ShowMenu(GameHud.Create());
+        MenuController.Instance.ShowMenu(GameHud.Create(character));
         character.SetMovementEnabled(true);
         Invoke("OnCharacterDeath", 3f);
     }
