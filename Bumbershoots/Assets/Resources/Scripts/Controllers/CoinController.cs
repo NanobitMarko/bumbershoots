@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour {
 
-    public float amountOfCoins;
+    public int amountOfCoins;
 
     void Start(){
-        if(amountOfCoins == 0f){
-            amountOfCoins = 5f;
+        if(amountOfCoins == 0){
+            amountOfCoins = 5;
         }
     }
 

@@ -16,18 +16,24 @@ public class GameHud : MonoBehaviour
 
 	public void Start()
 	{
-		scoreLabel.text = FormattedScore(0);
+		SetScore(0);
 		ConnectControls(character);
 	}
 
-	public void ConnectControls(PlayerController controller)
+	private void ConnectControls(PlayerController controller)
 	{
 		controlPanel.FingerDown += controller.OnFingerDown;
 		controlPanel.FingerUp += controller.OnFingerUp;
+		controller.ScoreChanged += SetScore;
+	}
+
+	private void SetScore(int score)
+	{
+		scoreLabel.text = FormattedScore(score);
 	}
 
 	private static string FormattedScore(int score)
 	{
-		return "Score: " + score;
+		return score.ToString();
 	}
 }
