@@ -16,6 +16,6 @@ public class MenuController : MonoBehaviour
 
 	public void ShowMenu(Transform menu)
 	{
-		menu.SetParent(transform);
+		menu.SetParent(transform, false);
 	}
 }
