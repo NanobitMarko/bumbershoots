@@ -13,6 +13,7 @@ public class ObstacleController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        SceneController.Instance.OnCharacterDeath();
         other.GetComponent<PlayerController>().AddDamage();
         Destroy(other.gameObject);
         Debug.Log("Uništen je player!");
