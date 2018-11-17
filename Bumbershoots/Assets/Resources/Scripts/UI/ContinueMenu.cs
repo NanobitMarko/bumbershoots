@@ -24,6 +24,7 @@ public class ContinueMenu : MonoBehaviour
 
 	public void OnContinueClicked()
 	{
+		Destroy(gameObject);
 		SceneController.Instance.ContinueGame();
 	}
 }
