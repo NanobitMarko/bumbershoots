@@ -7,7 +7,6 @@ public class SceneController : MonoBehaviour
 
     private bool hasContinued;
 
-    private Transform _continueMenu;
     private static SceneController instance;
 
     public static SceneController Instance
@@ -48,8 +47,7 @@ public class SceneController : MonoBehaviour
 
     public void OnCharacterDeath()
     {
-        _continueMenu = ContinueMenu.Create();
-        MenuController.Instance.ShowMenu(_continueMenu);
+        MenuController.Instance.ShowMenu(ContinueMenu.Create());
         character.SetMovementEnabled(false);
         character.SetAnimation("Death", false);
         
@@ -63,7 +61,6 @@ public class SceneController : MonoBehaviour
 
     public void ContinueGame()
     {
-        Destroy(_continueMenu.gameObject);
         character.ContinueGame();
         hasContinued = true;
     }

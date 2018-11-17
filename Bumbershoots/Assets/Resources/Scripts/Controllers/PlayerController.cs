@@ -146,11 +146,13 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+        
         SceneController.Instance.OnCharacterDeath();
         CancelInvoke("PlayBoredSound");
 
         if (CharacterDeath != null)
             CharacterDeath();
+        _isInvincible = true;
     }
 
     public void ContinueGame()
