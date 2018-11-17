@@ -36,6 +36,8 @@ public class CoinController : MonoBehaviour {
             //Destroy(gameObject);
             circleColl.enabled = false;
             spriteRend.enabled = false;
+            var particles = Instantiate(Resources.Load<ParticleSystem>("Particles/CoinCollectParticles"));
+            particles.transform.SetParent(transform, false);
         }
     }
 }
