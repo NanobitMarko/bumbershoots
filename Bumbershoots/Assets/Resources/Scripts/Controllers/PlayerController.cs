@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(StartInvincibility());
         SetMovementEnabled(true);
         SetAnimation("FallFast");
+        speedFactor = SpeedFast;
         if (CharacterContinuing != null)
         {
             CharacterContinuing();
