@@ -1,4 +1,4 @@
-﻿using Spine;
+using Spine;
 using Spine.Unity;
 using UnityEngine;
 
@@ -81,22 +81,33 @@ public class PlayerController : MonoBehaviour
 
     private void OnAnimationComplete(TrackEntry entry)
     {
+        string newAnimationName = null;
         switch (mesh.AnimationName)
         {
             case "SlowDown":
             {
-                SetAnimation("FallSlow");
+                newAnimationName ="FallSlow";
                 break;
             }
             case "SpeedUp":
             {
-                SetAnimation("FallFast");
+                newAnimationName = "FallFast";
+                break;
+            }
+            case "PunchThrough":
+            {
+                newAnimationName = IsGoingFast ? "FallFast" : "FallSlow";
                 break;
             }
             default:
             {
                 break;
             }
+        }
+
+        if (!string.IsNullOrEmpty(newAnimationName))
+        {
+            SetAnimation(newAnimationName);
         }
     }
 
@@ -131,5 +142,10 @@ public class PlayerController : MonoBehaviour
             ScoreChanged(score);
         }
         // TODO display some fancy text with the amount of coins collected! leave this to Marko, he's amazing at this. or don't.
+    }
+
+    public bool IsGoingFast
+    {
+        get { return speedFactor > 0.8f * SpeedFast; }
     }
 }
