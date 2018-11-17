@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212834671346321526}
   - component: {fileID: 114960144897943652}
   - component: {fileID: 61235657004295706}
-  - component: {fileID: 95145121904190228}
   m_Layer: 0
   m_Name: obs_single
   m_TagString: Untagged
@@ -38,6 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4340057261628468}
+  - component: {fileID: 95056373459468432}
   m_Layer: 0
   m_Name: obs_single_rotate
   m_TagString: Untagged
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281212861428636}
   m_LocalRotation: {x: 0.026176924, y: 0, z: 0, w: 0.99965733}
-  m_LocalPosition: {x: 2.57, y: 0.72, z: 0.05}
+  m_LocalPosition: {x: 2.57, y: 0, z: 0.05}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4340057261628468}
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602722122199042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.00006914139, y: -12.018485, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173219641699232}
@@ -97,13 +97,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!95 &95145121904190228
+--- !u!95 &95056373459468432
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281212861428636}
+  m_GameObject: {fileID: 1602722122199042}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ec19c0182cb984f45acd1c0c6dc2f365, type: 2}
