@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameHud : MonoBehaviour
 {
+    public static GameHud instance;
+
 	[SerializeField] private Text scoreLabel;
 	[SerializeField] private ControlPanel controlPanel;
 	private PlayerController character;
@@ -11,8 +13,16 @@ public class GameHud : MonoBehaviour
 	private const int majorScoreBounceTreshold = 1000;
 	private const int scoreBounceTreshold = 100;
 	private const int minorScoreBounceTreshold = 10;
+    
+    public GameObject AddCoinsLabelHolder;
+    public GameObject AddCoinsLabel;
 
-	public static Transform Create(PlayerController character)
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public static Transform Create(PlayerController character)
 	{
 		var menu = Instantiate(Resources.Load<GameHud>("Menus/GameHud"));
 		menu.character = character;
@@ -23,8 +33,8 @@ public class GameHud : MonoBehaviour
 	{
 		SetScore(0);
 		ConnectControls();
-		character.CharacterContinuing += ConnectControls;
-	}
+        character.CharacterContinuing += ConnectControls;
+    }
 
 	private void ConnectControls()
 	{
@@ -63,4 +73,13 @@ public class GameHud : MonoBehaviour
 	{
 		return score.ToString();
 	}
+
+    public void SpawnAddCoinsLabel(int amount){
+        if (AddCoinsLabel == null) return;
+        GameObject newAddCoinsLabel = Instantiate(AddCoinsLabel);
+        newAddCoinsLabel.transform.localScale = new Vector3(1, 1, 1);
+        newAddCoinsLabel.transform.SetParent(AddCoinsLabelHolder.transform, false);
+        newAddCoinsLabel.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+        newAddCoinsLabel.GetComponent<Text>().text = "+" + amount.ToString();
+    }
 }

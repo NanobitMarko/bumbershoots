@@ -179,6 +179,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // TODO display some fancy text with the amount of coins collected! leave this to Marko, he's amazing at this. or don't.
+        GameHud.instance.SpawnAddCoinsLabel(amount);
     }
 
     public bool IsGoingFast

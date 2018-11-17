@@ -3,6 +3,7 @@
 public class DestructibleObstacle : MonoBehaviour
 {
 	[SerializeField] private Animator _obstacleDestructionAnimator;
+    public GameObject deathCollider;
 	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -21,13 +22,14 @@ public class DestructibleObstacle : MonoBehaviour
 		}
 		else
 		{
-			playerController.AddDamage();
+			//playerController.AddDamage();
 		}
 	}
 
 	private void DestroyObstacle()
-	{
-		_obstacleDestructionAnimator.SetTrigger("StartDestructionAnimation");
-	}
+    {
+        _obstacleDestructionAnimator.SetTrigger("StartDestructionAnimation");
+        deathCollider.SetActive(false);
+    }
 	
 }
