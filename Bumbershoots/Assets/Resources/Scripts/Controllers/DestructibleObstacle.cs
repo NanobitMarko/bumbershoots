@@ -18,6 +18,7 @@ public class DestructibleObstacle : MonoBehaviour
 		if (playerController.IsGoingFast)
 		{
 			playerController.SetAnimation("PunchThrough", false);
+			SoundManager.Instance.PlaySFX(SoundManager.Effects.StoneCrack);
 			DestroyObstacle();
 		}
 		else
