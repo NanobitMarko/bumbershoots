@@ -86,18 +86,22 @@ public class PlayerController : MonoBehaviour
             case "SlowDown":
             {
                 SetAnimation("FallSlow");
+                CancelInvoke("PlayBoredSound");
+                InvokeRepeating("PlayBoredSound", 3f, 5f);
                 break;
             }
             case "SpeedUp":
             {
                 SetAnimation("FallFast");
-                break;
-            }
-            default:
-            {
+                CancelInvoke();
                 break;
             }
         }
+    }
+
+    private void PlayBoredSound()
+    {
+        SoundManager.Instance.PlaySFX(SoundManager.Effects.Idle);
     }
 
     public void SetAnimation(string animationName)
