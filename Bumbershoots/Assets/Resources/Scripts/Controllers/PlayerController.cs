@@ -124,6 +124,9 @@ public class PlayerController : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount * scoreMultiplier;
+        
+        SoundManager.Instance.PlaySFX(SoundManager.Effects.Coin);
+        
         if (ScoreChanged != null) {
             ScoreChanged(score);
         }
