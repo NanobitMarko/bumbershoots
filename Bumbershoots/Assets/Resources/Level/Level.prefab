@@ -8442,7 +8442,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866518754695872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47, y: 0.13, z: 5}
+  m_LocalPosition: {x: -0.82, y: 0.13, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4978590640439500}
@@ -10067,7 +10067,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883046088109912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.87, y: -0.69, z: 5}
+  m_LocalPosition: {x: -1.08, y: -0.69, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4978590640439500}
@@ -11025,7 +11025,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387648285385300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.01, y: 0.96, z: 5}
+  m_LocalPosition: {x: -0.91, y: 0.96, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4978590640439500}
@@ -16065,7 +16065,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883046088109912}
-  m_Text: Fast!
+  m_Text: Down!
   m_OffsetZ: 0
   m_CharacterSize: 0.45
   m_LineSpacing: 1
@@ -16086,7 +16086,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387648285385300}
-  m_Text: Gotta
+  m_Text: Don't
   m_OffsetZ: 0
   m_CharacterSize: 0.45
   m_LineSpacing: 1
@@ -16214,9 +16214,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866518754695872}
-  m_Text: 'Go
-
-'
+  m_Text: Slow
   m_OffsetZ: 0
   m_CharacterSize: 0.45
   m_LineSpacing: 1
