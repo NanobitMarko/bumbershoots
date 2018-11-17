@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     }
     
     private int scoreMultiplier = 1;
-    private float timeIntervalAtWhichWeGainPoints = 0.1f;
     private float lastTimeStampWhenWeGainedPoints;
     private float pointsGainedForDistancePassed = 0.3f;
     private bool shouldGainPointsFromProgress;
