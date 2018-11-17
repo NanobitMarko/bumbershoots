@@ -9,14 +9,14 @@ public class PlayerController : MonoBehaviour
 
     public int MultiplierFast = 2;
     public int MultiplierSlow = 2;
-    
+
     private Vector3 speed = Vector3.down;
     private float speedFactor = 8f;
     private bool shouldMove = true;
     [SerializeField] private SkeletonAnimation mesh;
-    
-    public delegate void ScoreChangedHandler(int score); 
-    
+
+    public delegate void ScoreChangedHandler(int score);
+
     public event ScoreChangedHandler ScoreChanged;
 
     public delegate void CharacterDeathHandler();
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         get { return coins + points; }
     }
-    
+
     private int scoreMultiplier = 1;
     private float lastTimeStampWhenWeGainedPoints;
     private float pointsGainedForDistancePassed = 0.3f;
@@ -42,27 +42,29 @@ public class PlayerController : MonoBehaviour
     {
         mesh.AnimationState.Complete += OnAnimationComplete;
         lastDistanceWhenWeGainedPoints = transform.localPosition.y;
-    }    
+    }
 
     private void Update()
     {
         if (shouldMove)
             transform.localPosition = transform.localPosition + speed * speedFactor * Time.deltaTime;
-        
+
         if (shouldGainPointsFromProgress)
             if (lastDistanceWhenWeGainedPoints - minimalScoringDistance > transform.localPosition.y)
             {
                 // y is dropping!
                 int pointsGained = Mathf.RoundToInt(Mathf.Abs(transform.localPosition.y - lastDistanceWhenWeGainedPoints) /
                                                     minimalScoringDistance * pointsGainedForDistancePassed) * scoreMultiplier;
-                if (pointsGained > 0) {
+                if (pointsGained > 0)
+                {
                     points += pointsGained;
                     lastDistanceWhenWeGainedPoints = transform.localPosition.y;
-                    if (ScoreChanged != null) {
+                    if (ScoreChanged != null)
+                    {
                         ScoreChanged(score);
                     }
+                }
             }
-        }
     }
 
     public void SetMovementEnabled(bool enabled)
@@ -75,6 +77,8 @@ public class PlayerController : MonoBehaviour
     {
         speedFactor = SpeedSlow;
         scoreMultiplier = MultiplierSlow;
+        if (mesh.AnimationName == "Slide")
+            return;
         SetAnimation("SlowDown");
     }
 
@@ -101,10 +105,6 @@ public class PlayerController : MonoBehaviour
                 newAnimationName = IsGoingFast ? "FallFast" : "FallSlow";
                 break;
             }
-            default:
-            {
-                break;
-            }
         }
 
         if (!string.IsNullOrEmpty(newAnimationName))
@@ -120,7 +120,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetAnimation(string animationName)
     {
-        //mesh.skeleton.SetToSetupPose();
         mesh.AnimationName = animationName;
     }
 
@@ -128,12 +127,15 @@ public class PlayerController : MonoBehaviour
     {
         speedFactor = SpeedFast;
         scoreMultiplier = MultiplierFast;
+        if (mesh.AnimationName == "Slide")
+            return;
         SetAnimation("SpeedUp");
     }
 
-    public void AddDamage() 
+    public void AddDamage()
     {
         SceneController.Instance.OnCharacterDeath();
+        CancelInvoke("PlayBoredSound");
 
         if (CharacterDeath != null)
             CharacterDeath();
@@ -142,17 +144,34 @@ public class PlayerController : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount * scoreMultiplier;
-        
+
         SoundManager.Instance.PlaySFX(SoundManager.Effects.Coin);
-        
-        if (ScoreChanged != null) {
+
+        if (ScoreChanged != null)
+        {
             ScoreChanged(score);
         }
+
         // TODO display some fancy text with the amount of coins collected! leave this to Marko, he's amazing at this. or don't.
     }
 
     public bool IsGoingFast
     {
-        get { return speedFactor > 0.8f * SpeedFast; }
+        get { return speedFactor > SpeedSlow; }
     }
+
+    public void StartSlide(Vector3 slideSpeed)
+    {
+        speed = slideSpeed;
+        SetAnimation("Slide");
+        
+        SoundManager.Instance.PlaySFX(SoundManager.Effects.Slip);
+    }
+
+    public void EndSlide()
+    {
+        speed = Vector3.down;
+        SetAnimation(IsGoingFast ? "FallFast" : "FallSlow");
+    }
+
 }
