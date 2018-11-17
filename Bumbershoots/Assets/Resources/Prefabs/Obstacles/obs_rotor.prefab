@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4644464661569502}
+  - component: {fileID: 95740941389005292}
   m_Layer: 0
   m_Name: obs_rotor
   m_TagString: Untagged
@@ -132,6 +133,24 @@ EdgeCollider2D:
   - {x: 0.09856894, y: -0.10203733}
   - {x: 0.08374522, y: -0.12267523}
   - {x: 0.012722827, y: -0.12762871}
+--- !u!95 &95740941389005292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086873107302626}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c7352adc8ad149a3a5ad66d5e8ee8a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114595423541464556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908e540e3a18e46a0a906fad4b92b967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsCollider: {fileID: 0}
 --- !u!212 &212959394710094776
 SpriteRenderer:
   m_ObjectHideFlags: 1
