@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour {
     public void OnStartClicked()
     {
         Destroy(gameObject);
+        SoundManager.Instance.PlaySFX(SoundManager.Effects.Select);
         SceneController.Instance.BeginGame();
     }
 }
