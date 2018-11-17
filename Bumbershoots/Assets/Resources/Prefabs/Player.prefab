@@ -36,7 +36,6 @@ GameObject:
   - component: {fileID: 4176713686253772}
   - component: {fileID: 114295862665272030}
   - component: {fileID: 50987402317129660}
-  - component: {fileID: 70144698183044206}
   - component: {fileID: 61222937819337196}
   m_Layer: 0
   m_Name: Player
@@ -191,21 +190,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.50763714, y: 0.7195406}
   m_EdgeRadius: 0
---- !u!70 &70144698183044206
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1151690992621764}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.024477482, y: 0.20499945}
-  m_Size: {x: 0.65910375, y: 0.9204483}
-  m_Direction: 0
 --- !u!114 &114159276818368134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,7 +217,7 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: FallFast
+  _animationName: Idle
   loop: 1
   timeScale: 1
 --- !u!114 &114295862665272030

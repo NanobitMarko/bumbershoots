@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
 
@@ -9,7 +7,19 @@ public class CameraManager : MonoBehaviour {
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
-    void Update()
+    private static CameraManager instance;
+
+    public static CameraManager Instance
+    {
+        get { return instance; }
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    private void Update()
     {
         if (target == null) return;
         Vector3 desiredPosition = new Vector3(0f, target.position.y, -10f) + offset;

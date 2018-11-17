@@ -17,7 +17,7 @@ public class DestructibleObstacle : MonoBehaviour
 
 		if (playerController.IsGoingFast)
 		{
-			playerController.SetAnimation("PunchThrough");
+			playerController.SetAnimation("PunchThrough", false);
 			DestroyObstacle();
 		}
 		else

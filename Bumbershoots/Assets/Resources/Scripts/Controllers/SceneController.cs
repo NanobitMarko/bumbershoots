@@ -33,7 +33,8 @@ public class SceneController : MonoBehaviour
     {
         MenuController.Instance.ShowMenu(MainMenu.Create());
         character.SetMovementEnabled(false);
-        
+        character.SetAnimation("Idle");
+        CameraManager.Instance.offset = Vector3.zero;
         SoundManager.Instance.PlayBGM(SoundManager.Music.Menu);
     }
 
@@ -41,7 +42,8 @@ public class SceneController : MonoBehaviour
     {
         MenuController.Instance.ShowMenu(GameHud.Create(character));
         character.SetMovementEnabled(true);
-        
+        character.SetAnimation("FallFast");
+        CameraManager.Instance.offset = Vector3.down * 3.5f;
         SoundManager.Instance.PlayBGM(SoundManager.Music.Uplifting);
     }
 
