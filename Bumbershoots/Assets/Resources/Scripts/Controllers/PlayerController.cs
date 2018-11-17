@@ -195,10 +195,6 @@ public class PlayerController : MonoBehaviour
                 meshRenderer.enabled = !meshRenderer.enabled;        
             }
             
-            Debug.Log("MeshRenderer.enabled " + meshRenderer.enabled);
-            Debug.Log("invincibilityDuration " + invincibilityDuration);
-            Debug.Log("visibilityDuration " + visibilityDuration);
-            
             yield return null;
         }
 
