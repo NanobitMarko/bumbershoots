@@ -27,9 +27,9 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: obs_platform_snake_0
+  m_Name: obs_platform_snake_1
   m_Speed: 1
-  m_CycleOffset: 0
+  m_CycleOffset: 0.05
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -40,7 +40,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bc36fbeb58f9c45b49bed0d362d509ad, type: 2}
+  m_Motion: {fileID: 7400000, guid: feef8a8ff040d415cb2cb0ba12578cf5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -81,7 +81,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102880665397571098}
-    m_Position: {x: 204, y: 180, z: 0}
+    m_Position: {x: 264, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102981281871817298}
     m_Position: {x: 235, y: 65, z: 0}
