@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
         Death,
         Jump,
         PowerUp,
+        Slip,
         StoneCrack,
         Umbrella,
         Wind

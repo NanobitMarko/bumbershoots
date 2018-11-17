@@ -233,4 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedFast: 8
   SpeedSlow: 2
+  MultiplierFast: 3
+  MultiplierSlow: 2
   mesh: {fileID: 114159276818368134}

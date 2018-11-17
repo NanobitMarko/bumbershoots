@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameHud : MonoBehaviour
@@ -8,7 +9,9 @@ public class GameHud : MonoBehaviour
 	[SerializeField] private ControlPanel controlPanel;
 	private PlayerController character;
 	private int previousScore;
+	private const int majorScoreBounceTreshold = 1000;
 	private const int scoreBounceTreshold = 100;
+	private const int minorScoreBounceTreshold = 10;
 
 	public static Transform Create(PlayerController character)
 	{
@@ -31,7 +34,7 @@ public class GameHud : MonoBehaviour
 		character.CharacterDeath += DisconnectControls;
 	}
 
-	public void DisconnectControls()
+	private void DisconnectControls()
 	{
 		controlPanel.FingerDown -= character.OnFingerDown;
 		controlPanel.FingerUp -= character.OnFingerUp;
@@ -41,10 +44,16 @@ public class GameHud : MonoBehaviour
 
 	private void SetScore(int score)
 	{
-		if (previousScore / scoreBounceTreshold < score / scoreBounceTreshold)
-		{
-			scoreLabel.rectTransform.localScale = Vector3.one * 1.2f;
-			scoreLabel.rectTransform.DOScale(Vector3.one, 0.5f);
+		if (previousScore / majorScoreBounceTreshold < score / majorScoreBounceTreshold) {
+			scoreLabel.rectTransform.localScale = Vector3.one * 1.8f;
+			scoreLabel.rectTransform.DOScale(Vector3.one, 0.3f);
+			scoreLabel.color = Color.yellow;
+		} else if (previousScore / scoreBounceTreshold < score / scoreBounceTreshold) {
+			scoreLabel.rectTransform.localScale = Vector3.one * 1.4f;
+			scoreLabel.rectTransform.DOScale(Vector3.one, 0.3f);
+		} else if (previousScore / minorScoreBounceTreshold < score / minorScoreBounceTreshold) {
+			scoreLabel.rectTransform.localScale = Vector3.one * 1.15f;
+			scoreLabel.rectTransform.DOScale(Vector3.one, 0.1f);
 		}
 		scoreLabel.text = FormattedScore(score);
 		previousScore = score;
