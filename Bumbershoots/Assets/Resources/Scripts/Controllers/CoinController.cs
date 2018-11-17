@@ -31,7 +31,7 @@ public class CoinController : MonoBehaviour {
         if (player != null)
         {
             player.AddCoins(amountOfCoins);
-            Debug.Log("Dodano 5 coinsa!!!" + this.gameObject.name );
+            //Debug.Log("Dodano 5 coinsa!!!" + this.gameObject.name );
             //Save coin position here for particle effect instance position
             //Destroy(gameObject);
             circleColl.enabled = false;
