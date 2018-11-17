@@ -132,8 +132,8 @@ public class PlayerController : MonoBehaviour
         SetAnimation("SpeedUp");
     }
 
-    public void AddDamage(){
-        Debug.Log("Pocinjena je steta!");
+    public void AddDamage() 
+    {
         SceneController.Instance.OnCharacterDeath();
 
         if (CharacterDeath != null)
