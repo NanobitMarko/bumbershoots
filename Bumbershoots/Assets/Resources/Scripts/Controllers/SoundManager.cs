@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,13 +10,23 @@ public class SoundManager : MonoBehaviour
     {
         Coin,
         Death,
+        Idle,
         Jump,
         PowerUp,
         Slip,
-        StoneCrack,
-        Umbrella,
-        Wind
+        StoneCrack
     }
+
+    private static readonly Dictionary<Effects, int> EffectVariants = new Dictionary<Effects, int>
+    {
+        { Effects.Coin, 1 },
+        { Effects.Death, 2 },
+        { Effects.Jump, 2 },
+        { Effects.PowerUp, 2 },
+        { Effects.Idle, 3 },
+        { Effects.StoneCrack, 1 },
+        { Effects.Slip, 1 }
+    };
 
     public enum Music
     {
@@ -36,12 +47,12 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(Effects track)
     {
-        SFXPlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/" + track + " SFX"));
+        SFXPlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/" + track + " " + Random.Range(1, EffectVariants[track] + 1)));
     }
 
     public void PlayBGM(Music track)
     {
-        BGMPlayer.clip = Resources.Load<AudioClip>("Sounds/BGM/" + track + " BGM");
+        BGMPlayer.clip = Resources.Load<AudioClip>("Sounds/BGM/" + track);
         BGMPlayer.Play();
     }
 }

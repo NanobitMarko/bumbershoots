@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     }
     
     private int scoreMultiplier = 1;
-    private float timeIntervalAtWhichWeGainPoints = 0.1f;
     private float lastTimeStampWhenWeGainedPoints;
     private float pointsGainedForDistancePassed = 0.3f;
     private bool shouldGainPointsFromProgress;
@@ -93,11 +92,14 @@ public class PlayerController : MonoBehaviour
         {
             case "SlowDown":
             {
-                newAnimationName ="FallSlow";
+                CancelInvoke("PlayBoredSound");
+                InvokeRepeating("PlayBoredSound", 3f, 5f);
+                newAnimationName = "FallSlow";
                 break;
             }
             case "SpeedUp":
             {
+                CancelInvoke("PlayBoredSound");
                 newAnimationName = "FallFast";
                 break;
             }
@@ -118,6 +120,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PlayBoredSound()
+    {
+        SoundManager.Instance.PlaySFX(SoundManager.Effects.Idle);
+    }
+
     public void SetAnimation(string animationName)
     {
         //mesh.skeleton.SetToSetupPose();
@@ -131,7 +138,8 @@ public class PlayerController : MonoBehaviour
         SetAnimation("SpeedUp");
     }
 
-    public void AddDamage(){
+    public void AddDamage()
+    {
         if (_isInvincible)
         {
             return;
