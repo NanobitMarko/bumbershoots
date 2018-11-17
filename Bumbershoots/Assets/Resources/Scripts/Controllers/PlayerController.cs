@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         scoreMultiplier = MultiplierSlow;
         if (mesh.AnimationName == "Slide")
             return;
-        SetAnimation("SlowDown");
+        SetAnimation("SlowDown", false);
     }
 
     private void OnAnimationComplete(TrackEntry entry)
@@ -125,8 +125,9 @@ public class PlayerController : MonoBehaviour
         SoundManager.Instance.PlaySFX(SoundManager.Effects.Idle);
     }
 
-    public void SetAnimation(string animationName)
+    public void SetAnimation(string animationName, bool loop = true)
     {
+        mesh.loop = loop;
         mesh.AnimationName = animationName;
     }
 
@@ -136,7 +137,7 @@ public class PlayerController : MonoBehaviour
         scoreMultiplier = MultiplierFast;
         if (mesh.AnimationName == "Slide")
             return;
-        SetAnimation("SpeedUp");
+        SetAnimation("SpeedUp", false);
     }
 
     public void AddDamage()
@@ -157,6 +158,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(StartInvincibility());
         SetMovementEnabled(true);
         SetAnimation("FallFast");
+        speedFactor = SpeedFast;
         if (CharacterContinuing != null)
         {
             CharacterContinuing();

@@ -234,7 +234,7 @@ MonoBehaviour:
   logErrors: 0
   disableRenderingOnOverride: 1
   _animationName: FallFast
-  loop: 0
+  loop: 1
   timeScale: 1
 --- !u!114 &114295862665272030
 MonoBehaviour:
