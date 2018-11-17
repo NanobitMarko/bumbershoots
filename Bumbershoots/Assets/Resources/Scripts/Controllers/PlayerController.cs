@@ -1,15 +1,21 @@
+using System;
+using System.Collections;
 using Spine;
 using Spine.Unity;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float InvincibleSeconds = 1;
+    public float InvincibleFlashDurationSeconds = 0.08f;
+    
     public float SpeedFast = 8f;
     public float SpeedSlow = 2f;
 
     public int MultiplierFast = 2;
     public int MultiplierSlow = 2;
 
+    private bool _isInvincible;
     private Vector3 speed = Vector3.down;
     private float speedFactor = 8f;
     private bool shouldMove = true;
@@ -22,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public delegate void CharacterDeathHandler();
 
     public event CharacterDeathHandler CharacterDeath;
+    public Action CharacterContinuing;
 
     private int coins;
     private int points;
@@ -134,11 +141,26 @@ public class PlayerController : MonoBehaviour
 
     public void AddDamage()
     {
+        if (_isInvincible)
+        {
+            return;
+        }
         SceneController.Instance.OnCharacterDeath();
         CancelInvoke("PlayBoredSound");
 
         if (CharacterDeath != null)
             CharacterDeath();
+    }
+
+    public void ContinueGame()
+    {
+        StartCoroutine(StartInvincibility());
+        SetMovementEnabled(true);
+        SetAnimation("FallFast");
+        if (CharacterContinuing != null)
+        {
+            CharacterContinuing();
+        }
     }
 
     public void AddCoins(int amount)
@@ -174,4 +196,28 @@ public class PlayerController : MonoBehaviour
         SetAnimation(IsGoingFast ? "FallFast" : "FallSlow");
     }
 
+    private IEnumerator StartInvincibility()
+    {
+        _isInvincible = true;
+        MeshRenderer meshRenderer = GetComponentInChildren<MeshRenderer>();
+        float invincibilityDuration = 0;
+        float visibilityDuration = 0;
+
+        while (invincibilityDuration < InvincibleSeconds)
+        {
+            visibilityDuration += Time.deltaTime;
+            invincibilityDuration += Time.deltaTime;
+
+            if (visibilityDuration > InvincibleFlashDurationSeconds)
+            {
+                visibilityDuration = 0;
+                meshRenderer.enabled = !meshRenderer.enabled;        
+            }
+            
+            yield return null;
+        }
+
+        meshRenderer.enabled = true;
+        _isInvincible = false;
+    }
 }

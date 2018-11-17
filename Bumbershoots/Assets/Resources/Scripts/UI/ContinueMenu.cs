@@ -11,4 +11,9 @@ public class ContinueMenu : MonoBehaviour {
 	{
 		SceneController.Instance.EndGame();
 	}
+
+	public void OnContinueClicked()
+	{
+		SceneController.Instance.ContinueGame();
+	}
 }

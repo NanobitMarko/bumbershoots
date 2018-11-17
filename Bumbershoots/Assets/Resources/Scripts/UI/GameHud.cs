@@ -1,6 +1,5 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameHud : MonoBehaviour
@@ -24,6 +23,7 @@ public class GameHud : MonoBehaviour
 	{
 		SetScore(0);
 		ConnectControls();
+		character.CharacterContinuing += ConnectControls;
 	}
 
 	private void ConnectControls()

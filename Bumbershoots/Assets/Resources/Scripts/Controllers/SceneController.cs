@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private PlayerController character;
-    
+
+    private Transform _continueMenu;
     private static SceneController instance;
 
     public static SceneController Instance
@@ -40,7 +41,8 @@ public class SceneController : MonoBehaviour
 
     public void OnCharacterDeath()
     {
-        MenuController.Instance.ShowMenu(ContinueMenu.Create());
+        _continueMenu = ContinueMenu.Create();
+        MenuController.Instance.ShowMenu(_continueMenu);
         character.SetMovementEnabled(false);
         character.SetAnimation("Death");
         
@@ -50,6 +52,12 @@ public class SceneController : MonoBehaviour
     public void EndGame()
     {
         ReloadScene();
+    }
+
+    public void ContinueGame()
+    {
+        Destroy(_continueMenu.gameObject);
+        character.ContinueGame();
     }
 
     private void ReloadScene()
