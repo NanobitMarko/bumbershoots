@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float SpeedFast = 8f;
     public float SpeedSlow = 2f;
 
-    public int MultiplierFast = 3;
+    public int MultiplierFast = 2;
     public int MultiplierSlow = 2;
     
     private Vector3 speed = Vector3.down;
@@ -32,14 +32,17 @@ public class PlayerController : MonoBehaviour
     }
     
     private int scoreMultiplier = 1;
-    private float timeIntervalAtWhichWeGainPoints = 0.05f;
+    private float timeIntervalAtWhichWeGainPoints = 0.1f;
     private float lastTimeStampWhenWeGainedPoints;
-    private int pointsGainedEveryTimeInterval = 1;
-    private bool shouldGainPointsFromTime;
+    private float pointsGainedForDistancePassed = 0.3f;
+    private bool shouldGainPointsFromProgress;
+    private float lastDistanceWhenWeGainedPoints;
+    private float minimalScoringDistance = 0.1f;
 
     private void Start()
     {
         mesh.AnimationState.Complete += OnAnimationComplete;
+        lastDistanceWhenWeGainedPoints = transform.localPosition.y;
     }    
 
     private void Update()
@@ -47,21 +50,26 @@ public class PlayerController : MonoBehaviour
         if (shouldMove)
             transform.localPosition = transform.localPosition + speed * speedFactor * Time.deltaTime;
         
-        if (shouldGainPointsFromTime)
-            if (lastTimeStampWhenWeGainedPoints + timeIntervalAtWhichWeGainPoints < Time.realtimeSinceStartup) {
-                lastTimeStampWhenWeGainedPoints = Time.realtimeSinceStartup;
-                points += pointsGainedEveryTimeInterval * scoreMultiplier; // possibly multiply for missed time?
-                if (ScoreChanged != null)
-                {
-                    ScoreChanged(score);
-                }
+        if (shouldGainPointsFromProgress)
+            if (lastDistanceWhenWeGainedPoints - minimalScoringDistance > transform.localPosition.y)
+            {
+                // y is dropping!
+                int pointsGained = Mathf.RoundToInt(Mathf.Abs(transform.localPosition.y - lastDistanceWhenWeGainedPoints) /
+                                                    minimalScoringDistance * pointsGainedForDistancePassed) * scoreMultiplier;
+                if (pointsGained > 0) {
+                    points += pointsGained;
+                    lastDistanceWhenWeGainedPoints = transform.localPosition.y;
+                    if (ScoreChanged != null) {
+                        ScoreChanged(score);
+                    }
             }
+        }
     }
 
     public void SetMovementEnabled(bool enabled)
     {
         shouldMove = enabled;
-        shouldGainPointsFromTime = enabled;
+        shouldGainPointsFromProgress = enabled;
     }
 
     public void OnFingerDown()
