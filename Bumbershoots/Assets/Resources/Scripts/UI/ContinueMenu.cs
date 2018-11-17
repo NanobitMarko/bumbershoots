@@ -19,12 +19,14 @@ public class ContinueMenu : MonoBehaviour
 	
 	public void OnRestartClicked()
 	{
+		SoundManager.Instance.PlaySFX(SoundManager.Effects.Select);
 		SceneController.Instance.EndGame();
 	}
 
 	public void OnContinueClicked()
 	{
 		Destroy(gameObject);
+		SoundManager.Instance.PlaySFX(SoundManager.Effects.Select);
 		SceneController.Instance.ContinueGame();
 	}
 }

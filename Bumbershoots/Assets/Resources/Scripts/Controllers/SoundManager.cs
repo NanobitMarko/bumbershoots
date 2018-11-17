@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
         Idle,
         Jump,
         PowerUp,
+        Select,
         Slip,
         StoneCrack
     }
@@ -24,6 +25,7 @@ public class SoundManager : MonoBehaviour
         { Effects.Jump, 2 },
         { Effects.PowerUp, 2 },
         { Effects.Idle, 3 },
+        { Effects.Select, 1 },
         { Effects.StoneCrack, 1 },
         { Effects.Slip, 1 }
     };
