@@ -231,6 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd528f76d48942cfae926083be03da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvincibleSeconds: 1.5
+  InvincibleFlashDurationSeconds: 0.1
   SpeedFast: 8
   SpeedSlow: 2
   MultiplierFast: 3
