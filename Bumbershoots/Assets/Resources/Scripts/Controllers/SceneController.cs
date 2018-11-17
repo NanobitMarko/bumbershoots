@@ -54,6 +54,6 @@ public class SceneController : MonoBehaviour
 
     private void ReloadScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
