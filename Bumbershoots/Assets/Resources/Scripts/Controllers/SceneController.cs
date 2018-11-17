@@ -5,12 +5,19 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private PlayerController character;
 
+    private bool hasContinued;
+
     private Transform _continueMenu;
     private static SceneController instance;
 
     public static SceneController Instance
     {
         get { return instance; }
+    }
+
+    public int GetCurrentScore()
+    {
+        return character.GetScore();
     }
 
     private void Awake()
@@ -58,10 +65,16 @@ public class SceneController : MonoBehaviour
     {
         Destroy(_continueMenu.gameObject);
         character.ContinueGame();
+        hasContinued = true;
     }
 
     private void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public bool HasContinued()
+    {
+        return hasContinued;
     }
 }

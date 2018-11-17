@@ -222,4 +222,9 @@ public class PlayerController : MonoBehaviour
         meshRenderer.enabled = true;
         _isInvincible = false;
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
 }

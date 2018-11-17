@@ -47,7 +47,7 @@ public class GameHud : MonoBehaviour
 		if (previousScore / majorScoreBounceTreshold < score / majorScoreBounceTreshold) {
 			scoreLabel.rectTransform.localScale = Vector3.one * 1.8f;
 			scoreLabel.rectTransform.DOScale(Vector3.one, 0.3f);
-			scoreLabel.color = Color.yellow;
+			scoreLabel.color = new Color32(255, 224, 117, 255);
 		} else if (previousScore / scoreBounceTreshold < score / scoreBounceTreshold) {
 			scoreLabel.rectTransform.localScale = Vector3.one * 1.4f;
 			scoreLabel.rectTransform.DOScale(Vector3.one, 0.3f);
