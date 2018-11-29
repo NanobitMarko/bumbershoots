@@ -22,6 +22,12 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        PreloadAssets();
+    }
+
+    private void PreloadAssets()
+    {
+        Resources.Load<ParticleSystem>("Particles/CoinCollectParticles");
     }
 
     private void Start()

@@ -38,6 +38,12 @@ public class CoinController : MonoBehaviour {
             spriteRend.enabled = false;
             var particles = Instantiate(Resources.Load<ParticleSystem>("Particles/CoinCollectParticles"));
             particles.transform.SetParent(transform, false);
+            Invoke("Selfdestruct", 3f);
         }
+    }
+
+    private void Selfdestruct()
+    {
+        Destroy(gameObject);
     }
 }

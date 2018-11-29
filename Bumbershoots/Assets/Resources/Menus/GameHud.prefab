@@ -172,9 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreLabel: {fileID: 114464422846147528}
   controlPanel: {fileID: 114000458829587064}
-  AddCoinsLabelHolder: {fileID: 1390055340332768}
-  AddCoinsLabel: {fileID: 1206261317477306, guid: 13c0fac25b7f74deaaab60c0147fde16,
-    type: 2}
+  AddCoinsLabelHolder: {fileID: 224755183597435712}
+  AddCoinsLabel: {fileID: 224300663474486368}
 --- !u!114 &114652014155730994
 MonoBehaviour:
   m_ObjectHideFlags: 1

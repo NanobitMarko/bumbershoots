@@ -14,8 +14,8 @@ public class GameHud : MonoBehaviour
 	private const int scoreBounceTreshold = 100;
 	private const int minorScoreBounceTreshold = 10;
     
-    public GameObject AddCoinsLabelHolder;
-    public GameObject AddCoinsLabel;
+    public RectTransform AddCoinsLabelHolder;
+    public RectTransform AddCoinsLabel;
 
     private void Awake()
     {
@@ -74,12 +74,13 @@ public class GameHud : MonoBehaviour
 		return score.ToString();
 	}
 
-    public void SpawnAddCoinsLabel(int amount){
-        if (AddCoinsLabel == null) return;
-        GameObject newAddCoinsLabel = Instantiate(AddCoinsLabel);
-        newAddCoinsLabel.transform.localScale = new Vector3(1, 1, 1);
-        newAddCoinsLabel.transform.SetParent(AddCoinsLabelHolder.transform, false);
-        newAddCoinsLabel.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-        newAddCoinsLabel.GetComponent<Text>().text = "+" + amount.ToString();
-    }
+	public void SpawnAddCoinsLabel(int amount)
+	{
+		if (AddCoinsLabel == null) return;
+		var newAddCoinsLabel = Instantiate(AddCoinsLabel);
+		newAddCoinsLabel.localScale = new Vector3(1, 1, 1);
+		newAddCoinsLabel.SetParent(AddCoinsLabelHolder, false);
+		newAddCoinsLabel.anchoredPosition = new Vector3(0, 0, 0);
+		newAddCoinsLabel.GetComponent<Text>().text = "+" + amount;
+	}
 }
